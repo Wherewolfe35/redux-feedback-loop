@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
 
-class Understanding extends Component {
-  state = { 
-
-   }
+class Support extends Component {
+  state = {  }
 
   handleClick = () => {
-    this.props.history.push('/comments');
+    this.props.history.push('/understanding');
   }
 
   render() { 
     return ( 
       <>
-      <h1>How well are you understanding the content?</h1>
+      <h1>How well are you being supported?</h1>
       <Radio />
       <button onClick={this.handleClick}>Next</button>
       </>
@@ -21,4 +19,4 @@ class Understanding extends Component {
   }
 }
  
-export default Understanding;
+export default Support;

@@ -4,8 +4,12 @@ import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
+//Components
 import Feeling from "../Feeling/Feeling";
 import Understanding from "../Understanding/Understanding";
+import Support from "../Support/Support";
+import Comments from "../Comments/Comments";
+import Review from "../Review/Review";
 
 class App extends Component {
 
@@ -21,6 +25,9 @@ class App extends Component {
       </div>
       <Route exact path='/' component={Feeling}/>
       <Route path='/understanding' component={Understanding}/>
+      <Route path='/support' component={Support} />
+      <Route path='/comments' component={Comments} />
+      <Route path='/review' component={Review}/>
       </Router>
     );
   }
