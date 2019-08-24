@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
+import { connect } from "react-redux";
 
 class Feeling extends Component {
-  state = {  }
-
-  handleClick = () => {
-    this.props.history.push('/understanding');
+  handleNextClick = () => {
+    if (this.props.feelingRating === 0){
+      alert('Please select a value for how you are feeling.');
+      return false;
+    }
+    let action = {
+      type: 'FEELING',
+      payload: this.props.feelingRating
+    }
+    this.props.dispatch(action);
+    this.props.history.push('/support');
   }
 
   render() { 
@@ -13,10 +21,16 @@ class Feeling extends Component {
       <>
       <h1>How are you feeling today?</h1>
       <Radio />
-      <button onClick={this.handleClick}>Next</button>
+      <button onClick={this.handleNextClick}>Next</button>
       </>
      );
   }
 }
+
+const store = (reduxStore) => {
+  return{
+    feelingRating: reduxStore.currentRadio
+  }
+}
  
-export default Feeling;
+export default connect(store)(Feeling);

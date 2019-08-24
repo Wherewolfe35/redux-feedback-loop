@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
+import { connect } from "react-redux";
 
 class Understanding extends Component {
-  state = { 
-
-   }
-
   handleClick = () => {
+    if (this.props.understandingRating === 0) {
+      alert('Please select a value for how well you feel you understand the material this week.');
+      return false;
+    }
+    let action = {
+      type: 'UNDERSTANDING',
+      payload: this.props.understandingRating
+    }
+    this.props.dispatch(action);
     this.props.history.push('/comments');
   }
 
@@ -21,4 +27,10 @@ class Understanding extends Component {
   }
 }
  
-export default Understanding;
+const store = (reduxStore) => {
+  return {
+    understandingRating: reduxStore.currentRadio
+  }
+}
+
+export default connect(store)(Understanding);

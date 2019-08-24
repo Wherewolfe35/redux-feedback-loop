@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
+import { connect } from "react-redux";
 
 class Support extends Component {
-  state = {  }
-
   handleClick = () => {
+    if (this.props.supportRating === 0) {
+      alert('Please select a value for how you feel supported.');
+      return false;
+    }
+    let action = {
+      type: 'SUPPORT',
+      payload: this.props.supportRating
+    }
+    this.props.dispatch(action);
     this.props.history.push('/understanding');
   }
 
@@ -18,5 +26,11 @@ class Support extends Component {
      );
   }
 }
+
+const store = (reduxStore) => {
+  return {
+    supportRating: reduxStore.currentRadio
+  }
+}
  
-export default Support;
+export default connect(store)(Support);
