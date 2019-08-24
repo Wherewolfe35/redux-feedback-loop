@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
 
 class Feeling extends Component {
   //verifies that a radio button has been selected and holds data in the feelingreducer
@@ -23,7 +24,10 @@ class Feeling extends Component {
       <h1>How are you feeling today?</h1>
       {this.props.currentFeeling> 0 && <p>Last Rating: {this.props.currentFeeling}</p>}
       <Radio />
-      <button onClick={this.handleNextClick}>Next</button>
+      <br />
+        <Button variant="outlined" color="primary" 
+        onClick={this.handleNextClick}>Next
+        </Button>
       </>
      );
   }

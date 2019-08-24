@@ -1,14 +1,5 @@
 # Redux Feedback Loop
 
-
->Do not clone this repository. Instead, download the zip, extract the contents, create a new GitHub repository and `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
-
-**PLEASE COMMENT YOUR CODE.**
-
-"And my last reminder of the day, which is my last reminder of every day, is...?" - Luke
-
- For this assignment, you will be creating a feedback form modeled after Prime's system. Feedback will be collected over 4 views. In a separate review page, display the current feedback values and a submit button. and when all steps are complete, your app will save the feedback in the database. 
-
 ### SETUP
 
 Create your database and tables using the provided `data.sql` file. Start the server.
@@ -26,23 +17,23 @@ npm run client
 
 ### ADD NEW FEEDBACK
 
-> NOTE: As a baseline requirement, you must use Redux to store your data across views.
+The app starts at a base page where the user sees their first question regarding feedback after their day at work/school. After answering how they are feeling overall using radio buttons on a 1-5 scale, they will be directed to the next view which asks them to rate their understanding of the day's material. From there the have the option to go back and change their rating or continue on to answer how they feel they are being supported.  After answering, they are able to add optional comments and finally they are guided to the review page where the user is able to see all of their answers and comments and perform a final submit. Upon submit they are given a thank you if the submit was successful and an opportunity to add new feedback.
 
-Create a multi-part form that allows users to leave feedback for today. 
-There will be 4 views for the form parts.
+### Features
 
-The parts:
-- How are you feeling today?
-![feeling](wireframes/feeling.png)
-- How well are you understanding the content?
-![understanding](wireframes/understanding.png)
-- How well are you being supported?
-![support](wireframes/supported.png)
-- Any comments you want to leave?
-![comments](wireframes/comments.png)
+This app has input validation in which the user is not allowed to move on to the next page unless they have filled out the appropriate form.
 
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process.
+The user can navigate back and forth between views to make changes to their answers and on the final review page is able to relocate to any page to change an answer.  A user is also provided a prompt on what their last rating was in case they forgot. 
 
+Finally there is an admin page in which the administrator can review all feedback that has been submitted thus far and has the option to clear one or all of them as well as flag those that need to be followed up on. 
+
+### Software used
+
+This is a react app that uses redux and a router to sift through views while still maintaining user added data as well as express and SQL to keep track of submitted feedback.
+
+***Material-UI is used for styling.
+
+/////////////////////////////////////////
 ### Input Validation
 
 Each step should only allow the user to advance to the next step if a score was provided. Be sure to tell the user in some way that a value must be provided.
@@ -64,18 +55,8 @@ When the submit button is clicked, save the submission in the database. The user
 ![understanding](wireframes/page-five.png)
 
 
-## STRETCH GOALS
-
-> NOTE: These stretch goals are intended to be completed in order.
-
-### UPDATE SCORES
-
-Allow the user to go back to a previous step and change their score. You still need to disallow empty values!
-
-
 ### ADMIN SECTION
 
-Display all of the existing feedback at the route `/admin`. The most recently added feedback should appear at the top of the list. Allow the user to delete existing feedback. Prompt the user to confirm prior to deleting the feedback from the database.
 
 ![display feedback](wireframes/admin.png)
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import './Radio.css';
 
 class Radio extends Component {
 
@@ -14,16 +15,21 @@ class Radio extends Component {
 
   render() {
     return (
-      <>
+      <div className='radioGroup'>
       Poor
-      < input type = 'radio' name = 'group1' onClick={()=>this.handleRadioClick('1')} /> 1
-      < input type = 'radio' name = 'group1' onClick={()=>this.handleRadioClick('2')} /> 2
-      < input type = 'radio' name = 'group1' onClick={()=>this.handleRadioClick('3')} /> 3
-      < input type = 'radio' name = 'group1' onClick={()=>this.handleRadioClick('4')} /> 4
-      < input type = 'radio' name = 'group1' onClick={()=>this.handleRadioClick('5')} /> 5
+      < input className = 'radios' type = 'radio' name = 'group1'
+      onClick={()=>this.handleRadioClick('1')} /> 1
+      < input className = 'radios' type = 'radio' name = 'group1' 
+      onClick={()=>this.handleRadioClick('2')} /> 2
+      < input className = 'radios'type = 'radio' name = 'group1' 
+      onClick={()=>this.handleRadioClick('3')} /> 3
+      < input className = 'radios' type = 'radio' name = 'group1' 
+      onClick={()=>this.handleRadioClick('4')} /> 4
+      < input className = 'radios' type = 'radio' name = 'group1' 
+      onClick={()=>this.handleRadioClick('5')} /> 5
       Well
       < br />
-      </>
+      </div>
      );
   }
 }

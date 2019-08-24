@@ -23,13 +23,13 @@ class App extends Component {
             <h4><i>"And my last reminder of the day, which is my last reminder of every day, is...?"</i> - Luke</h4>
         </header>
         <br/>
-      </div>
       <Route exact path='/' component={Feeling}/>
       <Route path='/understanding' component={Understanding}/>
       <Route path='/support' component={Support} />
       <Route path='/comments' component={Comments} />
       <Route path='/review' component={Review}/>
       <Route path='/admin' component={Admin}/>
+      </div>
       </Router>
     );
   }
