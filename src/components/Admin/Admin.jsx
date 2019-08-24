@@ -12,7 +12,7 @@ class Admin extends Component {
   }
 
   //GET request to database
-  getFeedback = () => { 
+  getFeedback = () => {
     console.log('in GET');
     Axios.get('/feedback')
       .then((response) => {
@@ -38,6 +38,19 @@ class Admin extends Component {
       })
   }
 
+  //upon click, flag or unflag the respective feedback
+  handleFlag = (id) => {
+    console.log('in flag');
+    Axios.put(`/feedback/${id}`)
+      .then((response) => {
+        console.log('flagged');
+        this.getFeedback();
+      })
+      .catch((error) => {
+        console.log('unable to flag', error);
+      })
+  }
+
   render() {
     return (
       <table>
@@ -47,7 +60,7 @@ class Admin extends Component {
             <th>Understanding</th>
             <th>Support</th>
             <th>Comments</th>
-            <th>Delete</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -57,7 +70,10 @@ class Admin extends Component {
               <td>{feedback.understanding}</td>
               <td>{feedback.support}</td>
               <td>{feedback.comments}</td>
-              <td><button onClick={() => this.handleDelete(feedback.id)}>Delete</button></td>
+              <td><button onClick={() => this.handleDelete(feedback.id)}>Delete</button>
+                <button onClick={() => this.handleFlag(feedback.id)}>Flag</button>
+                {feedback.flagged && 'Flag'}
+              </td>
             </tr>
           )}
         </tbody>

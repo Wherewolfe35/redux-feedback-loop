@@ -5,7 +5,7 @@ const router = express.Router();
 //get feedback from database
 router.get('/', (req, res) => {
   console.log('getting from database');
-  let queryText = `SELECT * FROM "feedback";`;
+  let queryText = `SELECT * FROM "feedback" ORDER BY "id" DESC;`;
   pool.query(queryText).then((result) => {
     console.log('Got this from database', result.rows);
     res.send(result.rows);
@@ -41,6 +41,21 @@ router.delete('/:id', (req, res) => {
     res.sendStatus(200);
   }).catch((error) => {
     console.log('DELETE error', error);
+    res.sendStatus(500);
+  })
+})
+
+//UPDATE respective feedback in order to be flagged
+router.put('/:id', (req, res) => {
+  console.log('in UPDATE', req.params.id);
+  let queryText = `UPDATE "feedback" SET "flagged" = NOT flagged Where "id" = $1;`;
+  pool.query(queryText, [req.params.id])
+  .then((result) => {
+    console.log('UPDATE successful');
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('UPDATE', error);
     res.sendStatus(500);
   })
 })
