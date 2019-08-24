@@ -3,6 +3,7 @@ import Radio from "../Radio/Radio";
 import { connect } from "react-redux";
 
 class Feeling extends Component {
+  //verifies that a radio button has been selected and holds data in the feelingreducer
   handleNextClick = () => {
     if (this.props.feelingRating === 0){
       alert('Please select a value for how you are feeling.');

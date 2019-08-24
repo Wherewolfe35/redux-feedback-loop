@@ -4,6 +4,7 @@ import Axios from 'axios';
 
 class Review extends Component {
 
+  //takes total data from redux store and sends it to the server for sorting
   handleClick = () => {
     Axios.post('/feedback', this.props.reduxStore)
       .then((response) => {

@@ -8,6 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
+//holds rating of overall wellbeing
 const feeling = (state = 0, action) => {
   switch (action.type) {
     case 'FEELING':
@@ -17,6 +18,7 @@ const feeling = (state = 0, action) => {
   }
 }
 
+//holds rating of understanding
 const understanding = (state = 0, action) => {
   switch (action.type) {
     case 'UNDERSTANDING':
@@ -26,6 +28,7 @@ const understanding = (state = 0, action) => {
   }
 }
 
+//holds rating of support
 const support = (state = 0, action) => {
   switch (action.type) {
     case 'SUPPORT':
@@ -35,6 +38,7 @@ const support = (state = 0, action) => {
   }
 }
 
+//holds comments, if any
 const comments = (state = '', action) => {
   switch (action.type) {
     case 'COMMENTS':
@@ -44,6 +48,7 @@ const comments = (state = '', action) => {
   }
 }
 
+//keeps track of which radio buttons have been clicked and refreshes upon new url to help with data integrity
 const currentRadio = (state = 0, action) => {
   switch (action.type){
     case 'RADIO':

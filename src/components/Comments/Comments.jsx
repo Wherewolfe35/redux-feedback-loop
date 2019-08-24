@@ -6,12 +6,14 @@ class Comments extends Component {
     comments: '',
    }
 
+   //keeps track of data in the input field in local state
    handleChange = (event) => {
      this.setState({
        comments: event.target.value
      })
    }
 
+   //sends data in local state to redux to hold before final submission
   handleClick = () => {
     let action = {
       type: 'COMMENTS',

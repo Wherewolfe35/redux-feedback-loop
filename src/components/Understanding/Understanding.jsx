@@ -3,6 +3,7 @@ import Radio from "../Radio/Radio";
 import { connect } from "react-redux";
 
 class Understanding extends Component {
+  //verifies that a radio button has been selected and holds data in the understandingreducer
   handleClick = () => {
     if (this.props.understandingRating === 0) {
       alert('Please select a value for how well you feel you understand the material this week.');

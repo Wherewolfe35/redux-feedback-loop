@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class Radio extends Component {
 
+  //send a status update to redux to keep track of which radio button was clicked
   handleRadioClick = (number) => {
     let action = {
       type: 'RADIO',
