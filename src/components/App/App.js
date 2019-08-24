@@ -10,6 +10,7 @@ import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import Review from "../Review/Review";
+import Admin from "../Admin/Admin";
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
+            <h4><i>"And my last reminder of the day, which is my last reminder of every day, is...?"</i> - Luke</h4>
         </header>
         <br/>
       </div>
@@ -28,6 +29,7 @@ class App extends Component {
       <Route path='/support' component={Support} />
       <Route path='/comments' component={Comments} />
       <Route path='/review' component={Review}/>
+      <Route path='/admin' component={Admin}/>
       </Router>
     );
   }
