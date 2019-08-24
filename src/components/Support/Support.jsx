@@ -17,11 +17,19 @@ class Support extends Component {
     this.props.history.push('/understanding');
   }
 
+  //sends user back one page
+  handleBack = () => {
+    this.props.history.push('/')
+  }
+  
+
   render() { 
     return ( 
       <>
       <h1>How well are you being supported?</h1>
+        {this.props.currentSupport > 0 && <p>Last Rating: {this.props.currentSupport}</p>}
       <Radio />
+      <button onClick={this.handleBack}>Back</button>
       <button onClick={this.handleClick}>Next</button>
       </>
      );
@@ -30,6 +38,7 @@ class Support extends Component {
 
 const store = (reduxStore) => {
   return {
+    currentSupport: reduxStore.support,
     supportRating: reduxStore.currentRadio
   }
 }

@@ -13,6 +13,8 @@ const feeling = (state = 0, action) => {
   switch (action.type) {
     case 'FEELING':
       return action.payload;
+    case 'CLEAR':
+      return 0;
     default:
       return state;
   }
@@ -23,6 +25,8 @@ const understanding = (state = 0, action) => {
   switch (action.type) {
     case 'UNDERSTANDING':
       return action.payload;
+    case 'CLEAR':
+      return 0;
     default:
       return state;
   }
@@ -33,6 +37,8 @@ const support = (state = 0, action) => {
   switch (action.type) {
     case 'SUPPORT':
       return action.payload;
+    case 'CLEAR':
+      return 0;
     default:
       return state;
   }
@@ -43,6 +49,8 @@ const comments = (state = '', action) => {
   switch (action.type) {
     case 'COMMENTS':
       return action.payload;
+    case 'CLEAR':
+      return '';
     default:
       return state;
   }

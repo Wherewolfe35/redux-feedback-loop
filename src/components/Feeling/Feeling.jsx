@@ -21,6 +21,7 @@ class Feeling extends Component {
     return ( 
       <>
       <h1>How are you feeling today?</h1>
+      {this.props.currentFeeling> 0 && <p>Last Rating: {this.props.currentFeeling}</p>}
       <Radio />
       <button onClick={this.handleNextClick}>Next</button>
       </>
@@ -30,6 +31,7 @@ class Feeling extends Component {
 
 const store = (reduxStore) => {
   return{
+    currentFeeling: reduxStore.feeling,
     feelingRating: reduxStore.currentRadio
   }
 }

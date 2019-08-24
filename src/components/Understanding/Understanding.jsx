@@ -17,11 +17,19 @@ class Understanding extends Component {
     this.props.history.push('/comments');
   }
 
+  //sends user back one page
+  handleBack = () => {
+    this.props.history.push('/support')
+  }
+  
+
   render() { 
     return ( 
       <>
       <h1>How well are you understanding the content?</h1>
+        {this.props.currentU > 0 && <p>Last Rating: {this.props.currentU}</p>}
       <Radio />
+      <button onClick={this.handleBack}>Back</button>
       <button onClick={this.handleClick}>Next</button>
       </>
      );
@@ -30,6 +38,7 @@ class Understanding extends Component {
  
 const store = (reduxStore) => {
   return {
+    currentU: reduxStore.understanding,
     understandingRating: reduxStore.currentRadio
   }
 }
