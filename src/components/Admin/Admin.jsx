@@ -1,5 +1,36 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { withStyles } from '@material-ui/core/Styles';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+import FlagSharpIcon from '@material-ui/icons/FlagSharp';
+import NewReleasesIcon from '@material-ui/icons/NewReleases';
+
+//for styling purposes
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    fontSize: 14,
+  },
+  body: {
+    fontSize: 15,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(TableRow);
 
 class Admin extends Component {
   state = {
@@ -53,31 +84,40 @@ class Admin extends Component {
 
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Feeling</th>
-            <th>Understanding</th>
-            <th>Support</th>
-            <th>Comments</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Feeling</StyledTableCell>
+            <StyledTableCell>Understanding</StyledTableCell>
+            <StyledTableCell>Support</StyledTableCell>
+            <StyledTableCell>Comments</StyledTableCell>
+            <StyledTableCell>Action</StyledTableCell>
+            <StyledTableCell>Flagged?</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {this.state.feedback.map(feedback =>
-            <tr key={feedback.id}>
-              <td>{feedback.feeling}</td>
-              <td>{feedback.understanding}</td>
-              <td>{feedback.support}</td>
-              <td>{feedback.comments}</td>
-              <td><button onClick={() => this.handleDelete(feedback.id)}>Delete</button>
-                <button onClick={() => this.handleFlag(feedback.id)}>Flag</button>
-                {feedback.flagged && 'Flag'}
-              </td>
-            </tr>
+            <StyledTableRow key={feedback.id}>
+              <StyledTableCell align="right">{feedback.feeling}</StyledTableCell>
+              <StyledTableCell align="center">{feedback.understanding}</StyledTableCell>
+              <StyledTableCell>{feedback.support}</StyledTableCell>
+              <StyledTableCell>{feedback.comments}</StyledTableCell>
+              <StyledTableCell><ButtonGroup>
+                <Button color='primary' 
+                  onClick={() => this.handleDelete(feedback.id)}><DeleteForeverOutlinedIcon />
+                </Button>
+                <Button color='secondary' 
+                onClick={() => this.handleFlag(feedback.id)}><FlagSharpIcon />
+                </Button>
+              </ButtonGroup>
+              </StyledTableCell>
+              <StyledTableCell>
+                {feedback.flagged && <NewReleasesIcon color='secondary' />}
+              </StyledTableCell>
+            </StyledTableRow>
           )}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     );
   }
 }

@@ -31,6 +31,7 @@ class Support extends Component {
         <h1>How well are you being supported?</h1>
         {this.props.currentSupport > 0 && <p>Last Rating: {this.props.currentSupport}</p>}
         <Radio />
+        <br />
         <ButtonGroup color="primary" aria-label="outlined primary button group">
           <Button onClick={this.handleBack}>Back</Button>
           <Button onClick={this.handleClick}>Next</Button>

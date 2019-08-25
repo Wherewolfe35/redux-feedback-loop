@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Axios from 'axios';
 import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 class Review extends Component {
   state = {
@@ -15,7 +16,7 @@ class Review extends Component {
         this.setState({
           submitted: true
         });
-        this.props.dispatch({type:'CLEAR'});
+        this.props.dispatch({ type: 'CLEAR' });
       })
       .catch((error) => {
         console.log(error);
@@ -24,7 +25,7 @@ class Review extends Component {
   }
 
   //takes user back to the first page
-  beginning = ()=>{
+  beginning = () => {
     this.props.history.push('/');
   }
 
@@ -33,23 +34,29 @@ class Review extends Component {
       <>
         {this.state.submitted ?
           <div>
-            <h1>Thank you for your Feedback!</h1>
-            <button onClick={this.beginning}>Leave New Feedback</button>
+            <h1>Thank you for your Feedback!</h1> <br />
+            <Button variant='outlined' color='primary' onClick={this.beginning}>Leave New Feedback</Button>
           </div>
           :
           <div>
             <h1>Review of your Feedback</h1>
             <ul>
-              <li>How you are feeling overall: {this.props.feeling}</li>
-              <Link to='/'>Edit</Link>
-              <li>Your understanding of this week: {this.props.understanding}</li>
-              <Link to='/understanding'>Edit</Link>
-              <li>How well you feel supported: {this.props.support}</li>
-              <Link to='/support'>Edit</Link>
-              <li>Comments: {this.props.comments}</li>
-              <Link to='/comments'>Edit</Link>
+              <li>How you are feeling overall: {this.props.feeling} &nbsp;&nbsp;
+                <Link to='/'>Edit</Link>
+              </li>
+              <li>Your understanding of this week: {this.props.understanding} &nbsp;&nbsp;
+                <Link to='/understanding'>Edit</Link>
+              </li>
+              <li>How well you feel supported: {this.props.support} &nbsp;&nbsp;
+                <Link to='/support'>Edit</Link>
+              </li>
+              <li>Comments: {this.props.comments} &nbsp;&nbsp;
+                <Link to='/comments'>Edit</Link>
+              </li>
             </ul>
-            <button onClick={this.handleClick}>Submit</button>
+            <Button variant="outlined" color="primary"
+              onClick={this.handleClick}>Submit
+            </Button>
           </div>}
       </>
     );

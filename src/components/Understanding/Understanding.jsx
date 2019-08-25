@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Radio from "../Radio/Radio";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 class Understanding extends Component {
   //verifies that a radio button has been selected and holds data in the understandingreducer
@@ -29,8 +31,11 @@ class Understanding extends Component {
       <h1>How well are you understanding the content?</h1>
         {this.props.currentU > 0 && <p>Last Rating: {this.props.currentU}</p>}
       <Radio />
-      <button onClick={this.handleBack}>Back</button>
-      <button onClick={this.handleClick}>Next</button>
+        <br />
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button onClick={this.handleBack}>Back</Button>
+          <Button onClick={this.handleClick}>Next</Button>
+        </ButtonGroup>
       </>
      );
   }

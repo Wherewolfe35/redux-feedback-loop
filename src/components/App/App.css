@@ -24,3 +24,8 @@
   background-color: rgba(2,2,2,0.1)
 }
 
+li {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 1.5rem;
+}

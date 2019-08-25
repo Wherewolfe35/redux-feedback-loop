@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import TextField from '@material-ui/core/TextField';
 
 class Comments extends Component {
   state = { 
@@ -32,9 +35,23 @@ class Comments extends Component {
     return ( 
       <>
       <h1>Any comments you would like to leave?</h1>
-      <input placeholder='Comments' onChange={this.handleChange} value={this.props.reduxStore.comments}/>
-      <button onClick={this.handleBack}>Back</button>
-      <button onClick = {this.handleClick}>Next</button>
+      <br />
+        <TextField
+          id="outlined-multiline-static"
+          label="Comments"
+          multiline
+          rows="4"
+          placeholder="Is there anything else you would like us to know?"
+          margin="normal"
+          variant="outlined"
+          onChange={this.handleChange} 
+          value={this.props.reduxStore.comments}
+        />
+        <br />
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button onClick={this.handleBack}>Back</Button>
+          <Button onClick={this.handleClick}>Next</Button>
+        </ButtonGroup>
       </>
      );
   }
