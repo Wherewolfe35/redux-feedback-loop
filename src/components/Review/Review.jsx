@@ -10,7 +10,7 @@ class Review extends Component {
   }
   //takes total data from redux store and sends it to the server for sorting, then allows user to submit new feedback
   handleClick = () => {
-    Axios.post('/feedback', this.props.reduxStore)
+    Axios.post('/feedback', this.props.reduxStore.overallReducer)
       .then((response) => {
         console.log(response);
         this.setState({
@@ -58,6 +58,11 @@ class Review extends Component {
               onClick={this.handleClick}>Submit
             </Button>
           </div>}
+          <br />
+          {this.props.feeling === '5' && this.props.understanding === '5' && this.props.support === '5' 
+          && this.props.comments.includes('goat') &&
+          (<div><p>You are the GOAT</p>
+          <img src='./images/goat_small.jpg' alt='You are the GOAT'/></div>)}
       </>
     );
   }
@@ -66,10 +71,10 @@ class Review extends Component {
 const storeToProps = (reduxStore) => {
   return {
     reduxStore,
-    feeling: reduxStore.feeling,
-    understanding: reduxStore.understanding,
-    support: reduxStore.support,
-    comments: reduxStore.comments
+    feeling: reduxStore.overallReducer.feeling,
+    understanding: reduxStore.overallReducer.understanding,
+    support: reduxStore.overallReducer.support,
+    comments: reduxStore.overallReducer.comments
   }
 }
 

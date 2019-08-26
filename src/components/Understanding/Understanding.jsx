@@ -43,7 +43,7 @@ class Understanding extends Component {
  
 const store = (reduxStore) => {
   return {
-    currentU: reduxStore.understanding,
+    currentU: reduxStore.overallReducer.understanding,
     understandingRating: reduxStore.currentRadio
   }
 }

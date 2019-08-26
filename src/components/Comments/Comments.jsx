@@ -5,10 +5,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import TextField from '@material-ui/core/TextField';
 
 class Comments extends Component {
-  state = { 
-    comments: '',
-   }
-
    //keeps track of data in the input field in local state
    handleChange = (event) => {
      let action = {
@@ -16,9 +12,6 @@ class Comments extends Component {
        payload: event.target.value
      }
      this.props.dispatch(action);
-     this.setState({
-       comments: event.target.value
-     })
    }
 
    //sends data in local state to redux to hold before final submission
@@ -45,7 +38,7 @@ class Comments extends Component {
           margin="normal"
           variant="outlined"
           onChange={this.handleChange} 
-          value={this.props.reduxStore.comments}
+          value={this.props.reduxStore.overallReducer.comments}
         />
         <br />
         <ButtonGroup color="primary" aria-label="outlined primary button group">

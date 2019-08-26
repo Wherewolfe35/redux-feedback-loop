@@ -35,7 +35,7 @@ class Feeling extends Component {
 
 const store = (reduxStore) => {
   return{
-    currentFeeling: reduxStore.feeling,
+    currentFeeling: reduxStore.overallReducer.feeling,
     feelingRating: reduxStore.currentRadio
   }
 }

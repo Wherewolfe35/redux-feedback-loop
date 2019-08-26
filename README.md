@@ -36,18 +36,18 @@ This is a react app that uses redux and a router to sift through views while sti
 Material-ui is used for styling.
 
 
-## Views
+# Views
 
-# Radio Form
+### Radio Form
 ![first page](wireframes/Feeling.png)
 
-# Comments
+### Comments
 ![comments page](wireframes/Comments.png)
 
-# Review
+### Review
 ![review page](wireframes/Review.png)
 
-# Admin
+### Admin
 ![Administrative page](wireframes/Admin.png)
 
 

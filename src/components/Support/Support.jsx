@@ -43,7 +43,7 @@ class Support extends Component {
 
 const store = (reduxStore) => {
   return {
-    currentSupport: reduxStore.support,
+    currentSupport: reduxStore.overallReducer.support,
     supportRating: reduxStore.currentRadio
   }
 }

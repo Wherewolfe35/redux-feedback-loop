@@ -8,49 +8,38 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-//holds rating of overall wellbeing
-const feeling = (state = 0, action) => {
+const overallRating = {
+  feelling: '',
+  understanding: '',
+  support: '',
+  comments: '',
+}
+
+//holds all ratings
+const overallReducer = (state = overallRating, action) => {
   switch (action.type) {
     case 'FEELING':
-      return action.payload;
-    case 'CLEAR':
-      return 0;
-    default:
-      return state;
-  }
-}
-
-//holds rating of understanding
-const understanding = (state = 0, action) => {
-  switch (action.type) {
+      return {
+        ...state,
+        feeling: action.payload
+      };
     case 'UNDERSTANDING':
-      return action.payload;
-    case 'CLEAR':
-      return 0;
-    default:
-      return state;
-  }
-}
-
-//holds rating of support
-const support = (state = 0, action) => {
-  switch (action.type) {
+      return {
+        ...state,
+        understanding: action.payload
+      };
     case 'SUPPORT':
-      return action.payload;
-    case 'CLEAR':
-      return 0;
-    default:
-      return state;
-  }
-}
-
-//holds comments, if any
-const comments = (state = '', action) => {
-  switch (action.type) {
+      return {
+        ...state,
+        support: action.payload
+      };
     case 'COMMENTS':
-      return action.payload;
+      return {
+        ...state,
+        comments: action.payload
+      };
     case 'CLEAR':
-      return '';
+      return overallRating;
     default:
       return state;
   }
@@ -76,11 +65,8 @@ const currentRadio = (state = 0, action) => {
 
 const store = createStore(
   combineReducers({
-    feeling,
-    understanding,
-    support,
-    comments,
-    currentRadio
+    currentRadio,
+    overallReducer
   }),
   applyMiddleware(logger),
 )
