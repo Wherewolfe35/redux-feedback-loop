@@ -21,7 +21,7 @@ class Radio extends Component {
       onClick={()=>this.handleRadioClick('1')} /> 1
       < input className = 'radios' type = 'radio' name = 'group1' 
       onClick={()=>this.handleRadioClick('2')} /> 2
-      < input className = 'radios'type = 'radio' name = 'group1' 
+      < input className = 'radios' type = 'radio' name = 'group1' 
       onClick={()=>this.handleRadioClick('3')} /> 3
       < input className = 'radios' type = 'radio' name = 'group1' 
       onClick={()=>this.handleRadioClick('4')} /> 4
