@@ -47,8 +47,3 @@ Material-ui is used for styling.
 ### Review
 ![review page](wireframes/Review.png)
 
-### Admin
-![Administrative page](wireframes/Admin.png)
-
-
-- Deploy your project to Heroku -- you'll need to read the special instructions for building and deploying with these apps! 
